@@ -2,1247 +2,1466 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio cá nhân Nguyễn Tấn Đạt">
-    <title>Nguyễn Tấn Đạt | Portfolio & Digital CV</title>
-
-    <style>
-        :root {
-            --primary: #7065ff;
-            --secondary: #aa91ff;
-            --background: #f7f8fd;
-            --surface: #ffffff;
-            --text: #202640;
-            --muted: #68728a;
-            --border: #e6e8f0;
-            --shadow: 0 10px 30px rgba(0,0,0,0.06);
-        }
-
-        body.dark {
-            --background: #111525;
-            --surface: #1c2236;
-            --text: #f1f2ff;
-            --muted: #bac0d2;
-            --border: #343b50;
-            --shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 100px;
-        }
-
-        body {
-            font-family: "Segoe UI", Arial, sans-serif;
-            background: var(--background);
-            color: var(--text);
-            line-height: 1.7;
-            transition: background 0.3s, color 0.3s;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1150px;
-            margin: auto;
-        }
-
-        /* THANH MENU */
-
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: var(--surface);
-            box-shadow: var(--shadow);
-        }
-
-        nav {
-            min-height: 75px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-        }
-
-        .logo {
-            font-size: 25px;
-            font-weight: 800;
-            color: var(--primary);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .nav-links a {
-            font-size: 14px;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .theme-btn {
-            padding: 9px 13px;
-            border: 1px solid var(--border);
-            border-radius: 50%;
-            background: var(--background);
-            color: var(--text);
-            font-size: 18px;
-            cursor: pointer;
-        }
-
-        /* TRANG CHỦ */
-
-        .hero {
-            min-height: 85vh;
-            display: flex;
-            align-items: center;
-            padding: 80px 0;
-            background: radial-gradient(
-                circle at 80% 20%,
-                rgba(112,101,255,0.16),
-                transparent 40%
-            );
-        }
-
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1.4fr 1fr;
-            align-items: center;
-            gap: 50px;
-        }
-
-        .hello {
-            color: var(--primary);
-            font-weight: bold;
-            font-size: 20px;
-        }
-
-        .hero h1 {
-            font-size: clamp(38px, 5vw, 60px);
-            line-height: 1.2;
-            margin: 15px 0;
-        }
-
-        .highlight {
-            color: var(--primary);
-        }
-
-        .hero h2 {
-            font-size: 23px;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 17px;
-            color: var(--muted);
-            margin-bottom: 28px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            border: 2px solid var(--primary);
-            border-radius: 9px;
-            background: var(--primary);
-            color: white;
-            font-size: 15px;
-            font-weight: bold;
-            font-family: inherit;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background: #5649df;
-            transform: translateY(-3px);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--primary);
-        }
-
-        .btn-outline:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        .avatar {
-            width: 300px;
-            height: 300px;
-            margin: auto;
-            border-radius: 50%;
-            border: 9px solid var(--surface);
-            background: linear-gradient(135deg, #7065ff, #aa91ff);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 85px;
-            font-weight: bold;
-            box-shadow: 0 20px 50px rgba(112,101,255,0.25);
-            animation: floating 4s ease-in-out infinite;
-        }
-
-        @keyframes floating {
-            0%, 100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-14px);
-            }
-        }
-
-        /* BỐ CỤC CHUNG */
-
-        section {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            font-size: 35px;
-            text-align: center;
-            margin-bottom: 12px;
-        }
-
-        .section-title::after {
-            content: "";
-            display: block;
-            width: 70px;
-            height: 4px;
-            margin: 12px auto;
-            border-radius: 5px;
-            background: var(--primary);
-        }
-
-        .subtitle {
-            text-align: center;
-            color: var(--muted);
-            margin-bottom: 45px;
-        }
-
-        .card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 17px;
-            padding: 30px;
-            box-shadow: var(--shadow);
-            transition: 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(112,101,255,0.12);
-        }
-
-        .card h3 {
-            color: var(--primary);
-            font-size: 21px;
-            margin-bottom: 15px;
-        }
-
-        .card p {
-            color: var(--muted);
-        }
-
-        /* GIỚI THIỆU */
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 28px;
-        }
-
-        .personal-info p {
-            margin: 12px 0;
-            overflow-wrap: anywhere;
-        }
-
-        .personal-info strong {
-            color: var(--text);
-        }
-
-        .personal-info a {
-            color: var(--primary);
-        }
-
-        /* KỸ NĂNG */
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 28px;
-        }
-
-        .skill {
-            margin-bottom: 25px;
-        }
-
-        .skill-name {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            margin-bottom: 9px;
-        }
-
-        .skill-name span:last-child {
-            color: var(--primary);
-        }
-
-        .progress {
-            width: 100%;
-            height: 13px;
-            background: var(--border);
-            border-radius: 20px;
-            overflow: hidden;
-        }
-
-        .progress-bar {
-            height: 100%;
-            width: 0;
-            background: linear-gradient(
-                90deg,
-                #7065ff,
-                #aa91ff
-            );
-            border-radius: 20px;
-            transition: width 0.8s ease;
-        }
-
-        /* DỰ ÁN */
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .project-image {
-            height: 165px;
-            background: linear-gradient(135deg, #7065ff, #aa91ff);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 65px;
-            margin-bottom: 22px;
-        }
-
-        .tags {
-            margin: 18px 0;
-        }
-
-        .tag {
-            display: inline-block;
-            padding: 5px 11px;
-            margin: 3px;
-            font-size: 12px;
-            background: rgba(112,101,255,0.12);
-            border-radius: 20px;
-            color: var(--primary);
-        }
-
-        .project-link {
-            color: var(--primary);
-            font-weight: bold;
-        }
-
-        /* HỌC VẤN */
-
-        .timeline {
-            max-width: 850px;
-            margin: auto;
-            border-left: 3px solid var(--primary);
-            padding-left: 30px;
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 25px;
-        }
-
-        .timeline-item::before {
-            content: "";
-            position: absolute;
-            width: 14px;
-            height: 14px;
-            background: var(--primary);
-            border-radius: 50%;
-            left: -38px;
-            top: 15px;
-        }
-
-        .date {
-            color: var(--primary);
-            font-weight: bold;
-        }
-
-        /* LIÊN HỆ */
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 28px;
-        }
-
-        .contact-info p {
-            margin-bottom: 16px;
-            overflow-wrap: anywhere;
-        }
-
-        .contact-info a {
-            color: var(--primary);
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 14px;
-            margin-bottom: 16px;
-            border: 1px solid var(--border);
-            background: var(--background);
-            color: var(--text);
-            border-radius: 9px;
-            font-family: inherit;
-            font-size: 15px;
-            outline: none;
-        }
-
-        input:focus, textarea:focus {
-            border-color: var(--primary);
-        }
-
-        textarea {
-            min-height: 140px;
-            resize: vertical;
-        }
-
-        /* FOOTER */
-
-        footer {
-            background: #19213b;
-            color: white;
-            text-align: center;
-            padding: 35px 20px;
-        }
-
-        footer p {
-            opacity: 0.85;
-        }
-
-        #backToTop {
-            display: none;
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            width: 48px;
-            height: 48px;
-            border: none;
-            border-radius: 50%;
-            background: var(--primary);
-            color: white;
-            font-size: 22px;
-            cursor: pointer;
-            z-index: 999;
-        }
-
-        /* ĐIỆN THOẠI */
-
-        @media (max-width: 900px) {
-            nav {
-                flex-direction: column;
-                padding: 15px 0;
-            }
-
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 15px;
-            }
-
-            .hero-content,
-            .about-grid,
-            .skills-grid,
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-content {
-                text-align: center;
-            }
-
-            .hero-image {
-                order: -1;
-            }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-
-            .avatar {
-                width: 220px;
-                height: 220px;
-                font-size: 65px;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            section {
-                padding: 55px 0;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 35px;
-            }
-
-            .card {
-                padding: 23px;
-            }
-        }
-
-        /* LƯU CV THÀNH PDF */
-
-        @media print {
-            header,
-            .hero-buttons,
-            #contactForm,
-            #backToTop {
-                display: none !important;
-            }
-
-            body {
-                background: white;
-                color: black;
-            }
-
-            section {
-                padding: 25px 0;
-            }
-
-            .hero {
-                min-height: auto;
-                padding: 30px 0;
-            }
-
-            .card {
-                break-inside: avoid;
-                box-shadow: none;
-            }
-
-            .avatar {
-                animation: none;
-                width: 160px;
-                height: 160px;
-                font-size: 45px;
-            }
-
-            .progress-bar {
-                print-color-adjust: exact;
-                -webkit-print-color-adjust: exact;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portfolio Nguyễn Tấn Đạt">
+<title>Nguyễn Tấn Đạt | Digital CV</title>
+
+<style>
+:root {
+    --bg: #080b17;
+    --surface: #12182d;
+    --surface2: #1b2140;
+    --text: #f5f3ff;
+    --muted: #a7acc5;
+    --purple: #a855f7;
+    --violet: #7865ff;
+    --cyan: #4adeff;
+    --border: rgba(168,85,247,.23);
+    --track: #303653;
+}
+
+body.light {
+    --bg: #f5f6ff;
+    --surface: #ffffff;
+    --surface2: #eeeeff;
+    --text: #202443;
+    --muted: #646c87;
+    --purple: #873de1;
+    --violet: #6854e8;
+    --border: rgba(104,84,232,.2);
+    --track: #e4e5f1;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 95px;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.7;
+    overflow-x: hidden;
+    transition: background .3s, color .3s;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button, input, textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.container {
+    max-width: 1150px;
+    width: 90%;
+    margin: auto;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg,#a855f7,#4adeff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* ========== NAVBAR ========== */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background: rgba(8,11,23,.9);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(15px);
+}
+
+body.light header {
+    background: rgba(255,255,255,.9);
+}
+
+nav {
+    min-height: 78px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: var(--purple);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 22px;
+}
+
+.nav-links a {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--muted);
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--purple);
+}
+
+.theme-btn {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 12px;
+    padding: 9px 14px;
+    font-size: 19px;
+}
+
+/* ========== HERO ========== */
+
+.hero {
+    min-height: 86vh;
+    display: flex;
+    align-items: center;
+    padding: 90px 0;
+    background:
+        radial-gradient(circle at 80% 40%,
+        rgba(168,85,247,.14),transparent 45%);
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    align-items: center;
+    gap: 60px;
+}
+
+.hello {
+    display: inline-block;
+    color: var(--purple);
+    font-weight: bold;
+    padding: 8px 17px;
+    border: 1px solid var(--border);
+    background: rgba(168,85,247,.08);
+    border-radius: 30px;
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-size: clamp(42px,6vw,72px);
+    line-height: 1.17;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+}
+
+.hero h2 {
+    font-size: 23px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    color: var(--muted);
+    font-size: 17px;
+    max-width: 590px;
+    margin-bottom: 28px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    min-height: 48px;
+    border: 1px solid var(--purple);
+    border-radius: 12px;
+    background: linear-gradient(135deg,
+        var(--violet),var(--purple));
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(168,85,247,.35);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--text);
+}
+
+/* ========== AVATAR ẢNH THẬT ========== */
+
+.profile-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+}
+
+.profile-ring {
+    width: 340px;
+    height: 340px;
+    border-radius: 50%;
+    padding: 9px;
+    background: conic-gradient(
+        #a855f7,
+        #7865ff,
+        #4adeff,
+        #a855f7
+    );
+    box-shadow:
+        0 0 45px rgba(168,85,247,.32),
+        0 0 100px rgba(120,101,255,.12);
+    animation: floating 5s ease-in-out infinite;
+}
+
+.profile-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 7px solid var(--bg);
+    background: #12182d;
+}
+
+.avatar-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    /* Điều chỉnh vị trí người trong ảnh */
+    object-position: 34% 55%;
+
+    transition: transform .5s;
+}
+
+.profile-ring:hover .avatar-img {
+    transform: scale(1.1);
+}
+
+.float-tag {
+    position: absolute;
+    background: var(--surface);
+    padding: 12px 17px;
+    border-radius: 13px;
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 30px rgba(0,0,0,.2);
+    font-size: 13px;
+    font-weight: bold;
+    animation: floating 4s ease-in-out infinite;
+}
+
+.tag-top {
+    top: 35px;
+    right: 0;
+}
+
+.tag-bottom {
+    bottom: 35px;
+    left: 0;
+    animation-delay: 1s;
+}
+
+@keyframes floating {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-14px); }
+}
+
+/* ========== SECTIONS ========== */
+
+section {
+    padding: 85px 0;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.kicker {
+    color: var(--purple);
+    letter-spacing: 3px;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.section-title {
+    font-size: clamp(29px,4vw,40px);
+    margin: 10px 0;
+}
+
+.subtitle {
+    color: var(--muted);
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 30px;
+    border-radius: 20px;
+    transition: transform .3s, border-color .3s;
+    box-shadow: 0 15px 40px rgba(0,0,0,.1);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--purple);
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    font-size: 21px;
+}
+
+.card p {
+    color: var(--muted);
+}
+
+/* ========== ABOUT ========== */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.info-item {
+    display: grid;
+    grid-template-columns: 110px minmax(0,1fr);
+    gap: 10px;
+    padding: 11px 0;
+    border-bottom: 1px solid var(--border);
+    overflow-wrap: anywhere;
+}
+
+.info-item span,
+.info-item a {
+    color: var(--muted);
+}
+
+.info-item a:hover {
+    color: var(--purple);
+}
+
+/* ========== SKILLS ========== */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.skill {
+    margin: 24px 0;
+}
+
+.skill-top {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.skill-value {
+    color: var(--purple);
+}
+
+.progress {
+    height: 11px;
+    background: var(--track);
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    width: 0;
+    height: 100%;
+    background: linear-gradient(
+        90deg,#7865ff,#a855f7,#4adeff);
+    border-radius: 30px;
+    transition: width .8s ease;
+}
+
+/* ========== PROJECTS ========== */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+}
+
+.project-image {
+    height: 165px;
+    border-radius: 15px;
+    background: linear-gradient(
+        135deg,#23215a,#531a65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 65px;
+    margin-bottom: 20px;
+}
+
+.project-card p {
+    min-height: 110px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 20px 0;
+}
+
+.tag {
+    padding: 5px 11px;
+    border-radius: 20px;
+    background: rgba(168,85,247,.12);
+    color: var(--purple);
+    font-size: 12px;
+}
+
+.project-link {
+    color: var(--purple);
+    font-weight: bold;
+}
+
+.project-note {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* ========== EDUCATION ========== */
+
+.timeline {
+    max-width: 850px;
+    margin: auto;
+    border-left: 2px solid var(--purple);
+    padding-left: 32px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -41px;
+    top: 25px;
+    width: 15px;
+    height: 15px;
+    background: var(--purple);
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--purple);
+}
+
+.timeline-date {
+    color: var(--purple);
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* ========== CONTACT ========== */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 25px;
+}
+
+.contact-item {
+    background: var(--surface2);
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 15px;
+    overflow-wrap: anywhere;
+}
+
+.contact-item span {
+    color: var(--muted);
+    display: block;
+    font-size: 12px;
+}
+
+.contact-item a {
+    color: var(--purple);
+}
+
+input,textarea {
+    width: 100%;
+    border: 1px solid var(--border);
+    background: var(--surface2);
+    color: var(--text);
+    border-radius: 12px;
+    padding: 14px;
+    outline: none;
+    margin-bottom: 15px;
+}
+
+input:focus,textarea:focus {
+    border-color: var(--purple);
+}
+
+textarea {
+    min-height: 135px;
+    resize: vertical;
+}
+
+/* ========== FOOTER ========== */
+
+footer {
+    text-align: center;
+    padding: 35px 20px;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+}
+
+footer p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+#backToTop {
+    display: none;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 48px;
+    height: 48px;
+    background: var(--purple);
+    color: white;
+    border: none;
+    border-radius: 13px;
+    font-size: 22px;
+    z-index: 100;
+}
+
+/* ========== REVEAL ANIMATION ========== */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity .7s, transform .7s;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ========== RESPONSIVE ========== */
+
+@media(max-width:950px) {
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 14px 0;
+    }
+
+    .nav-links {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .hero-grid,
+    .about-grid,
+    .skills-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-grid {
+        text-align: center;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .profile-wrap {
+        order: -1;
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media(max-width:620px) {
+    section {
+        padding: 60px 0;
+    }
+
+    .hero {
+        padding: 50px 0;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .profile-wrap {
+        min-height: 290px;
+    }
+
+    .profile-ring {
+        width: 235px;
+        height: 235px;
+    }
+
+    .float-tag {
+        font-size: 11px;
+        padding: 8px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .info-item {
+        grid-template-columns: 1fr;
+        gap: 2px;
+    }
+
+    .card {
+        padding: 23px;
+    }
+
+    .project-card p {
+        min-height: auto;
+    }
+}
+
+/* ========== PDF ========== */
+
+@media print {
+    :root {
+        --bg: #fff;
+        --surface: #fff;
+        --surface2: #fff;
+        --text: #111827;
+        --muted: #374151;
+        --border: #ddd;
+    }
+
+    body {
+        background: white !important;
+        color: black !important;
+    }
+
+    header,
+    .hero-buttons,
+    .float-tag,
+    #contactForm,
+    #backToTop {
+        display: none !important;
+    }
+
+    .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .card {
+        break-inside: avoid;
+        box-shadow: none;
+    }
+
+    section, .hero {
+        padding: 20px 0;
+        min-height: auto;
+    }
+
+    .profile-ring {
+        width: 170px;
+        height: 170px;
+        animation: none;
+    }
+
+    .progress-bar {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <!-- THANH MENU -->
-    <header>
-        <nav class="container">
+<!-- ========== HEADER ========== -->
+<header>
+    <nav class="container">
+        <a href="#home" class="logo">
+            Dat<span>Portfolio.</span>
+        </a>
 
-            <a href="#home" class="logo">
-                DatPortfolio.
-            </a>
+        <ul class="nav-links">
+            <li><a href="#home">Trang chủ</a></li>
+            <li><a href="#about">Giới thiệu</a></li>
+            <li><a href="#skills">Kỹ năng</a></li>
+            <li><a href="#projects">Dự án</a></li>
+            <li><a href="#education">Học vấn</a></li>
+            <li><a href="#contact">Liên hệ</a></li>
+        </ul>
 
-            <ul class="nav-links">
-                <li><a href="#home">Trang chủ</a></li>
-                <li><a href="#about">Giới thiệu</a></li>
-                <li><a href="#skills">Kỹ năng</a></li>
-                <li><a href="#projects">Dự án</a></li>
-                <li><a href="#education">Học vấn</a></li>
-                <li><a href="#contact">Liên hệ</a></li>
-            </ul>
+        <button class="theme-btn"
+                id="themeToggle"
+                aria-label="Đổi chế độ sáng tối">
+            ☀️
+        </button>
+    </nav>
+</header>
 
-            <button class="theme-btn" id="themeToggle"
-                    aria-label="Chuyển chế độ sáng tối">
-                🌙
-            </button>
+<!-- ========== HERO ========== -->
+<section class="hero" id="home">
+    <div class="container hero-grid">
 
-        </nav>
-    </header>
+        <div class="reveal">
+            <span class="hello">
+                ✨ Welcome to my Portfolio
+            </span>
 
+            <h1>
+                Xin chào,<br>
+                Tôi là
+                <span class="gradient-text">
+                    Nguyễn Tấn Đạt
+                </span>
+            </h1>
 
-    <!-- TRANG CHỦ -->
-    <section class="hero" id="home">
-        <div class="container hero-content">
+            <h2>💻 Sinh viên Công nghệ Thông tin</h2>
 
-            <div>
-                <span class="hello">Xin chào, tôi là</span>
+            <p>
+                Tôi là Nguyễn Tấn Đạt, sinh viên
+                ngành Công nghệ Thông tin tại
+                Trường Đại học Giao Thông Vận Tải.
 
-                <h1>
-                    Nguyễn Tấn
-                    <span class="highlight">Đạt</span>
-                </h1>
+                Tôi yêu thích lập trình, thiết kế
+                website và khám phá công nghệ mới.
 
-                <h2>Sinh viên Công nghệ Thông tin</h2>
+                Đây là website giới thiệu bản thân,
+                kỹ năng và hành trình học tập của tôi.
+            </p>
 
-                <p>
-                    Tôi là Nguyễn Tấn Đạt, sinh viên
-                    ngành Công nghệ Thông tin tại
-                    Trường Đại học Giao Thông Vận Tải.
+            <div class="hero-buttons">
+                <a href="#projects" class="btn">
+                    🚀 Xem dự án
+                </a>
 
-                    Tôi đam mê lập trình, thiết kế website
-                    và tìm hiểu các công nghệ mới.
+                <a href="#contact" class="btn btn-outline">
+                    ✉️ Liên hệ
+                </a>
 
-                    Mục tiêu của tôi là nâng cao kiến thức,
-                    rèn luyện kỹ năng và trở thành
-                    lập trình viên chuyên nghiệp.
-                </p>
+                <button class="btn btn-outline"
+                        id="printCV">
+                    📄 Lưu CV PDF
+                </button>
+            </div>
+        </div>
 
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn">
-                        Xem dự án
-                    </a>
+        <!-- ẢNH ĐẠI DIỆN -->
+        <div class="profile-wrap reveal">
 
-                    <a href="#contact" class="btn btn-outline">
-                        Liên hệ
-                    </a>
+            <div class="profile-ring">
+                <div class="profile-avatar">
 
-                    <button class="btn" id="printCV">
-                        📄 Tải CV PDF
-                    </button>
+                    <img
+                        src="images/avatar.png"
+                        alt="Ảnh cá nhân Nguyễn Tấn Đạt"
+                        class="avatar-img"
+                    >
+
                 </div>
             </div>
 
-            <div class="hero-image">
-                <div class="avatar">Đạt</div>
+            <div class="float-tag tag-top">
+                💻 IT Student
+            </div>
+
+            <div class="float-tag tag-bottom">
+                ✨ HTML · CSS · JS
             </div>
 
         </div>
-    </section>
+    </div>
+</section>
 
+<!-- ========== ABOUT ========== -->
+<section id="about">
+    <div class="container">
 
-    <!-- GIỚI THIỆU -->
-    <section id="about">
-        <div class="container">
-
+        <div class="section-heading reveal">
+            <div class="kicker">ABOUT ME</div>
             <h2 class="section-title">
-                Giới thiệu bản thân
+                Giới thiệu
+                <span class="gradient-text">bản thân</span>
             </h2>
-
             <p class="subtitle">
                 Thông tin cá nhân và định hướng phát triển
             </p>
+        </div>
 
-            <div class="about-grid">
+        <div class="about-grid">
 
-                <div class="card">
-                    <h3>👨‍💻 Về tôi</h3>
+            <div class="card reveal">
+                <h3>👨‍💻 Về tôi</h3>
 
-                    <p>
-                        Xin chào! Tôi tên là
-                        <strong>Nguyễn Tấn Đạt</strong>.
+                <p>
+                    Xin chào! Tôi tên là
+                    <strong>Nguyễn Tấn Đạt</strong>.
 
-                        Tôi đang học ngành Công nghệ Thông tin
-                        tại Trường Đại học Giao Thông Vận Tải.
-                    </p>
+                    Tôi đang theo học ngành Công nghệ
+                    Thông tin tại Trường Đại học
+                    Giao Thông Vận Tải.
+                </p>
 
-                    <br>
+                <br>
 
-                    <p>
-                        Tôi yêu thích tìm hiểu công nghệ,
-                        học lập trình và thiết kế
-                        giao diện website.
-                    </p>
+                <p>
+                    Tôi yêu thích tìm hiểu công nghệ,
+                    học lập trình và thiết kế
+                    những website có giao diện
+                    trực quan, dễ sử dụng.
+                </p>
 
-                    <br>
+                <br>
 
-                    <p>
-                        Tôi luôn cố gắng nâng cao
-                        kiến thức chuyên môn, kỹ năng mềm
-                        và tinh thần làm việc nhóm.
-                    </p>
+                <p>
+                    Tôi luôn cố gắng trau dồi
+                    kiến thức, rèn luyện khả năng
+                    giải quyết vấn đề và cải thiện
+                    kỹ năng làm việc nhóm.
+                </p>
+            </div>
+
+            <div class="card reveal">
+                <h3>📋 Thông tin cá nhân</h3>
+
+                <div class="info-item">
+                    <strong>Họ tên</strong>
+                    <span>Nguyễn Tấn Đạt</span>
                 </div>
 
-                <div class="card personal-info">
-                    <h3>📋 Thông tin cá nhân</h3>
+                <div class="info-item">
+                    <strong>MSSV</strong>
+                    <span>052206000886</span>
+                </div>
 
-                    <p>
-                        <strong>Họ và tên:</strong>
-                        Nguyễn Tấn Đạt
-                    </p>
+                <div class="info-item">
+                    <strong>Ngày sinh</strong>
+                    <span>11/07/2006</span>
+                </div>
 
-                    <p>
-                        <strong>MSSV:</strong>
-                        052206000886
-                    </p>
-
-                    <p>
-                        <strong>Ngày sinh:</strong>
-                        11/07/2006
-                    </p>
-
-                    <p>
-                        <strong>Trường:</strong>
+                <div class="info-item">
+                    <strong>Trường</strong>
+                    <span>
                         Trường Đại học Giao Thông Vận Tải
-                    </p>
-
-                    <p>
-                        <strong>Ngành học:</strong>
-                        Công nghệ Thông tin
-                    </p>
-
-                    <p>
-                        <strong>Email:</strong>
-                        <a href="mailto:datnt0886@ut.edu.vn">
-                            datnt0886@ut.edu.vn
-                        </a>
-                    </p>
-
-                    <p>
-                        <strong>Địa chỉ:</strong>
-                        TP. Hồ Chí Minh
-                    </p>
+                    </span>
                 </div>
 
-            </div>
-        </div>
-    </section>
-
-
-    <!-- KỸ NĂNG -->
-    <section id="skills">
-        <div class="container">
-
-            <h2 class="section-title">
-                Kỹ năng của tôi
-            </h2>
-
-            <p class="subtitle">
-                Các công nghệ và kỹ năng đang học tập
-            </p>
-
-            <div class="skills-grid">
-
-                <!-- KỸ NĂNG LẬP TRÌNH -->
-                <div class="card">
-                    <h3>💻 Kỹ năng lập trình</h3>
-
-                    <div class="skill" data-level="50">
-                        <div class="skill-name">
-                            <span>HTML</span>
-                            <span class="skill-percent"></span>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar"></div>
-                        </div>
-                    </div>
-
-                    <div class="skill" data-level="45">
-                        <div class="skill-name">
-                            <span>CSS</span>
-                            <span class="skill-percent"></span>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar"></div>
-                        </div>
-                    </div>
-
-                    <div class="skill" data-level="40">
-                        <div class="skill-name">
-                            <span>JavaScript</span>
-                            <span class="skill-percent"></span>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar"></div>
-                        </div>
-                    </div>
-
-                    <div class="skill" data-level="40">
-                        <div class="skill-name">
-                            <span>Python</span>
-                            <span class="skill-percent"></span>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar"></div>
-                        </div>
-                    </div>
+                <div class="info-item">
+                    <strong>Ngành</strong>
+                    <span>Công nghệ Thông tin</span>
                 </div>
 
-
-                <!-- KỸ NĂNG MỀM -->
-                <div class="card">
-                    <h3>🤝 Kỹ năng mềm</h3>
-
-                    <div class="skill" data-level="50">
-                        <div class="skill-name">
-                            <span>Làm việc nhóm</span>
-                            <span class="skill-percent"></span>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar"></div>
-                        </div>
-                    </div>
-
-                    <div class="skill" data-level="45">
-                        <div class="skill-name">
-                            <span>Giao tiếp</span>
-                            <span class="skill-percent"></span>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar"></div>
-                        </div>
-                    </div>
-
-                    <div class="skill" data-level="40">
-                        <div class="skill-name">
-                            <span>Giải quyết vấn đề</span>
-                            <span class="skill-percent"></span>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar"></div>
-                        </div>
-                    </div>
-
-                    <div class="skill" data-level="50">
-                        <div class="skill-name">
-                            <span>Quản lý thời gian</span>
-                            <span class="skill-percent"></span>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar"></div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-
-    <!-- DỰ ÁN -->
-    <section id="projects">
-        <div class="container">
-
-            <h2 class="section-title">
-                Dự án cá nhân
-            </h2>
-
-            <p class="subtitle">
-                Dự án thực hành và ý tưởng phát triển
-            </p>
-
-            <div class="projects-grid">
-
-                <div class="card">
-                    <div class="project-image">🌐</div>
-
-                    <h3>Website Portfolio</h3>
-
-                    <p>
-                        Website giới thiệu thông tin cá nhân,
-                        kỹ năng, học vấn và mục tiêu nghề nghiệp.
-                    </p>
-
-                    <div class="tags">
-                        <span class="tag">HTML</span>
-                        <span class="tag">CSS</span>
-                        <span class="tag">JavaScript</span>
-                    </div>
-
-                    <a href="#home" class="project-link">
-                        Xem dự án →
+                <div class="info-item">
+                    <strong>Email</strong>
+                    <a href="mailto:datnt0886@ut.edu.vn">
+                        datnt0886@ut.edu.vn
                     </a>
                 </div>
 
-                <div class="card">
-                    <div class="project-image">📚</div>
-
-                    <h3>Quản lý sinh viên</h3>
-
-                    <p>
-                        Ý tưởng website quản lý
-                        sinh viên, môn học,
-                        lớp học và kết quả học tập.
-                    </p>
-
-                    <div class="tags">
-                        <span class="tag">HTML</span>
-                        <span class="tag">CSS</span>
-                        <span class="tag">JavaScript</span>
-                    </div>
-
-                    <p class="project-link">
-                        Ý tưởng dự án
-                    </p>
+                <div class="info-item">
+                    <strong>Địa chỉ</strong>
+                    <span>TP. Hồ Chí Minh</span>
                 </div>
-
-                <div class="card">
-                    <div class="project-image">🛒</div>
-
-                    <h3>Website bán hàng</h3>
-
-                    <p>
-                        Ý tưởng website bán hàng
-                        trực tuyến, hiển thị sản phẩm
-                        và chức năng giỏ hàng.
-                    </p>
-
-                    <div class="tags">
-                        <span class="tag">HTML</span>
-                        <span class="tag">CSS</span>
-                        <span class="tag">Web Design</span>
-                    </div>
-
-                    <p class="project-link">
-                        Ý tưởng dự án
-                    </p>
-                </div>
-
             </div>
+
         </div>
-    </section>
+    </div>
+</section>
 
+<!-- ========== SKILLS ========== -->
+<section id="skills">
+    <div class="container">
 
-    <!-- HỌC VẤN -->
-    <section id="education">
-        <div class="container">
+        <div class="section-heading reveal">
+            <div class="kicker">MY SKILLS</div>
 
             <h2 class="section-title">
-                Học vấn & Mục tiêu
+                Kỹ năng
+                <span class="gradient-text">của tôi</span>
             </h2>
 
             <p class="subtitle">
-                Quá trình học tập và định hướng nghề nghiệp
+                Mức độ tự đánh giá trong quá trình học tập
             </p>
-
-            <div class="timeline">
-
-                <div class="timeline-item card">
-                    <span class="date">Hiện tại</span>
-
-                    <h3>
-                        Trường Đại học Giao Thông Vận Tải
-                    </h3>
-
-                    <p>
-                        Ngành học: Công nghệ Thông tin
-                    </p>
-
-                    <p>
-                        MSSV: 052206000886
-                    </p>
-
-                    <p>
-                        Đang học lập trình, thiết kế web,
-                        cơ sở dữ liệu và các kiến thức
-                        chuyên ngành Công nghệ Thông tin.
-                    </p>
-                </div>
-
-                <div class="timeline-item card">
-                    <span class="date">
-                        Mục tiêu ngắn hạn
-                    </span>
-
-                    <h3>Nâng cao kỹ năng</h3>
-
-                    <p>
-                        Củng cố kiến thức HTML, CSS,
-                        JavaScript, Python và thực hành
-                        thêm các dự án để tích lũy kinh nghiệm.
-                    </p>
-                </div>
-
-                <div class="timeline-item card">
-                    <span class="date">
-                        Mục tiêu dài hạn
-                    </span>
-
-                    <h3>Trở thành Web Developer</h3>
-
-                    <p>
-                        Phấn đấu trở thành lập trình viên web,
-                        có khả năng thiết kế, phát triển
-                        và bảo trì các website hiện đại.
-                    </p>
-                </div>
-
-            </div>
         </div>
-    </section>
 
+        <div class="skills-grid">
 
-    <!-- LIÊN HỆ -->
-    <section id="contact">
-        <div class="container">
+            <div class="card reveal">
+                <h3>💻 Kỹ năng lập trình</h3>
+
+                <div class="skill" data-level="50">
+                    <div class="skill-top">
+                        <span>HTML</span>
+                        <span class="skill-value"></span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar"></div>
+                    </div>
+                </div>
+
+                <div class="skill" data-level="45">
+                    <div class="skill-top">
+                        <span>CSS</span>
+                        <span class="skill-value"></span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar"></div>
+                    </div>
+                </div>
+
+                <div class="skill" data-level="40">
+                    <div class="skill-top">
+                        <span>JavaScript</span>
+                        <span class="skill-value"></span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar"></div>
+                    </div>
+                </div>
+
+                <div class="skill" data-level="40">
+                    <div class="skill-top">
+                        <span>Python</span>
+                        <span class="skill-value"></span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card reveal">
+                <h3>🤝 Kỹ năng mềm</h3>
+
+                <div class="skill" data-level="50">
+                    <div class="skill-top">
+                        <span>Làm việc nhóm</span>
+                        <span class="skill-value"></span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar"></div>
+                    </div>
+                </div>
+
+                <div class="skill" data-level="45">
+                    <div class="skill-top">
+                        <span>Giao tiếp</span>
+                        <span class="skill-value"></span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar"></div>
+                    </div>
+                </div>
+
+                <div class="skill" data-level="40">
+                    <div class="skill-top">
+                        <span>Giải quyết vấn đề</span>
+                        <span class="skill-value"></span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar"></div>
+                    </div>
+                </div>
+
+                <div class="skill" data-level="50">
+                    <div class="skill-top">
+                        <span>Quản lý thời gian</span>
+                        <span class="skill-value"></span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ========== PROJECTS ========== -->
+<section id="projects">
+    <div class="container">
+
+        <div class="section-heading reveal">
+            <div class="kicker">MY PROJECTS</div>
+            <h2 class="section-title">
+                Dự án
+                <span class="gradient-text">của tôi</span>
+            </h2>
+            <p class="subtitle">
+                Sản phẩm thực hành và ý tưởng phát triển
+            </p>
+        </div>
+
+        <div class="projects-grid">
+
+            <div class="card project-card reveal">
+                <div class="project-image">🌐</div>
+
+                <h3>Personal Portfolio</h3>
+
+                <p>
+                    Website giới thiệu bản thân,
+                    kỹ năng, học vấn và liên hệ,
+                    được thiết kế theo phong cách
+                    Dark Modern.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
+                </div>
+
+                <a href="#home" class="project-link">
+                    Xem dự án ↗
+                </a>
+            </div>
+
+            <div class="card project-card reveal">
+                <div class="project-image">📚</div>
+
+                <h3>Student Management</h3>
+
+                <p>
+                    Ý tưởng xây dựng website quản lý
+                    sinh viên, môn học, lớp học
+                    và kết quả học tập.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
+                </div>
+
+                <span class="project-note">
+                    Dự án ý tưởng
+                </span>
+            </div>
+
+            <div class="card project-card reveal">
+                <div class="project-image">🛒</div>
+
+                <h3>E-Commerce Website</h3>
+
+                <p>
+                    Ý tưởng thiết kế website bán hàng,
+                    hiển thị danh mục sản phẩm,
+                    thông tin sản phẩm và giỏ hàng.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">Web Design</span>
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                </div>
+
+                <span class="project-note">
+                    Dự án ý tưởng
+                </span>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ========== EDUCATION ========== -->
+<section id="education">
+    <div class="container">
+
+        <div class="section-heading reveal">
+            <div class="kicker">MY JOURNEY</div>
 
             <h2 class="section-title">
-                Liên hệ với tôi
+                Học vấn &
+                <span class="gradient-text">mục tiêu</span>
             </h2>
 
             <p class="subtitle">
-                Kết nối với Nguyễn Tấn Đạt
+                Hành trình học tập và định hướng nghề nghiệp
             </p>
-
-            <div class="contact-grid">
-
-                <div class="card contact-info">
-                    <h3>📞 Thông tin liên hệ</h3>
-
-                    <p>
-                        <strong>👤 Họ tên:</strong>
-                        Nguyễn Tấn Đạt
-                    </p>
-
-                    <p>
-                        <strong>🎓 MSSV:</strong>
-                        052206000886
-                    </p>
-
-                    <p>
-                        <strong>📧 Email:</strong>
-                        <a href="mailto:datnt0886@ut.edu.vn">
-                            datnt0886@ut.edu.vn
-                        </a>
-                    </p>
-
-                    <p>
-                        <strong>🏫 Trường:</strong>
-                        Trường Đại học Giao Thông Vận Tải
-                    </p>
-
-                    <p>
-                        <strong>📍 Địa chỉ:</strong>
-                        TP. Hồ Chí Minh
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>✉️ Gửi tin nhắn</h3>
-
-                    <form id="contactForm">
-
-                        <input
-                            type="text"
-                            id="name"
-                            placeholder="Nhập họ và tên"
-                            required
-                        >
-
-                        <input
-                            type="email"
-                            id="email"
-                            placeholder="Nhập email của bạn"
-                            required
-                        >
-
-                        <textarea
-                            id="message"
-                            placeholder="Nhập nội dung tin nhắn..."
-                            required
-                        ></textarea>
-
-                        <button type="submit" class="btn">
-                            Gửi tin nhắn
-                        </button>
-
-                        <p style="font-size:13px;margin-top:12px;">
-                            Biểu mẫu mở ứng dụng email để gửi tin.
-                        </p>
-
-                    </form>
-                </div>
-
-            </div>
         </div>
-    </section>
+
+        <div class="timeline">
+
+            <div class="card timeline-item reveal">
+                <div class="timeline-date">
+                    HIỆN TẠI
+                </div>
+
+                <h3>🎓 Sinh viên Công nghệ Thông tin</h3>
+
+                <p>
+                    Trường Đại học Giao Thông Vận Tải
+                </p>
+
+                <p>
+                    MSSV: 052206000886
+                </p>
+
+                <p>
+                    Đang học tập kiến thức lập trình,
+                    thiết kế website, cơ sở dữ liệu
+                    và phát triển phần mềm.
+                </p>
+            </div>
+
+            <div class="card timeline-item reveal">
+                <div class="timeline-date">
+                    MỤC TIÊU NGẮN HẠN
+                </div>
+
+                <h3>🚀 Nâng cao kỹ năng</h3>
+
+                <p>
+                    Cải thiện kỹ năng HTML, CSS,
+                    JavaScript và Python.
+
+                    Thực hiện thêm các dự án thực hành
+                    và tích lũy kinh nghiệm lập trình.
+                </p>
+            </div>
+
+            <div class="card timeline-item reveal">
+                <div class="timeline-date">
+                    MỤC TIÊU DÀI HẠN
+                </div>
+
+                <h3>💼 Web Developer</h3>
+
+                <p>
+                    Phấn đấu trở thành lập trình viên web,
+                    có khả năng thiết kế và phát triển
+                    website chuyên nghiệp,
+                    đáp ứng nhu cầu thực tế.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ========== CONTACT ========== -->
+<section id="contact">
+    <div class="container">
+
+        <div class="section-heading reveal">
+            <div class="kicker">CONTACT ME</div>
+
+            <h2 class="section-title">
+                Liên hệ
+                <span class="gradient-text">với tôi</span>
+            </h2>
+
+            <p class="subtitle">
+                Kết nối và trao đổi cùng Nguyễn Tấn Đạt
+            </p>
+        </div>
+
+        <div class="contact-grid">
+
+            <div class="card reveal">
+                <h3>📬 Thông tin liên hệ</h3>
+
+                <div class="contact-item">
+                    <span>Họ tên</span>
+                    <strong>Nguyễn Tấn Đạt</strong>
+                </div>
+
+                <div class="contact-item">
+                    <span>MSSV</span>
+                    <strong>052206000886</strong>
+                </div>
+
+                <div class="contact-item">
+                    <span>Email</span>
+                    <a href="mailto:datnt0886@ut.edu.vn">
+                        datnt0886@ut.edu.vn
+                    </a>
+                </div>
+
+                <div class="contact-item">
+                    <span>Trường</span>
+                    <strong>
+                        Trường Đại học Giao Thông Vận Tải
+                    </strong>
+                </div>
+
+                <div class="contact-item">
+                    <span>GitHub</span>
+                    <a href="https://github.com/datnt0886-eng"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        github.com/datnt0886-eng
+                    </a>
+                </div>
+            </div>
+
+            <div class="card reveal">
+                <h3>✉️ Gửi tin nhắn</h3>
+
+                <form id="contactForm">
+                    <input type="text"
+                           id="name"
+                           placeholder="Họ và tên"
+                           required>
+
+                    <input type="email"
+                           id="email"
+                           placeholder="Địa chỉ email"
+                           required>
+
+                    <textarea id="message"
+                              placeholder="Nội dung tin nhắn..."
+                              required></textarea>
+
+                    <button type="submit" class="btn">
+                        Gửi tin nhắn ↗
+                    </button>
+
+                    <p style="font-size:13px;margin-top:15px">
+                        Biểu mẫu sẽ mở ứng dụng email
+                        để xác nhận và gửi tin.
+                    </p>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+    <h3>Nguyễn Tấn Đạt</h3>
+
+    <p>
+        Sinh viên Công nghệ Thông tin
+        · MSSV: 052206000886
+    </p>
+
+    <p>
+        © <span id="year"></span>
+        DatPortfolio. HTML · CSS · JavaScript
+    </p>
+</footer>
+
+<button id="backToTop"
+        aria-label="Lên đầu trang">
+    ↑
+</button>
+
+<!-- ========== JAVASCRIPT ========== -->
+<script>
+
+// NĂM HIỆN TẠI
+document.getElementById("year").textContent =
+    new Date().getFullYear();
 
 
-    <!-- CHÂN TRANG -->
-    <footer>
-        <h3>Nguyễn Tấn Đạt</h3>
-        <p>MSSV: 052206000886</p>
-        <p>Sinh viên Công nghệ Thông tin</p>
-        <p>
-            © <span id="year"></span>
-            Nguyễn Tấn Đạt | Digital CV
-        </p>
-    </footer>
+// THANH KỸ NĂNG TỰ ĐỒNG BỘ %
+document.querySelectorAll(".skill").forEach(function(skill) {
+    const level = Math.min(
+        100,
+        Math.max(0, Number(skill.dataset.level) || 0)
+    );
+
+    skill.querySelector(".skill-value").textContent =
+        level + "%";
+
+    skill.querySelector(".progress-bar").style.width =
+        level + "%";
+});
 
 
-    <button id="backToTop"
-            aria-label="Lên đầu trang">
-        ↑
-    </button>
+// DARK / LIGHT MODE
+const themeToggle =
+    document.getElementById("themeToggle");
+
+if (localStorage.getItem("portfolioTheme") === "light") {
+    document.body.classList.add("light");
+}
+
+function updateTheme() {
+    themeToggle.textContent =
+        document.body.classList.contains("light")
+        ? "🌙" : "☀️";
+}
+
+updateTheme();
+
+themeToggle.addEventListener("click", function() {
+    document.body.classList.toggle("light");
+
+    localStorage.setItem(
+        "portfolioTheme",
+        document.body.classList.contains("light")
+        ? "light" : "dark"
+    );
+
+    updateTheme();
+});
 
 
-    <!-- JAVASCRIPT -->
-    <script>
-        // HIỂN THỊ NĂM
-        document.getElementById("year").textContent =
-            new Date().getFullYear();
+// HIỆU ỨNG XUẤT HIỆN KHI CUỘN
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+        function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.08 }
+    );
+
+    revealElements.forEach(function(el) {
+        observer.observe(el);
+    });
+} else {
+    revealElements.forEach(function(el) {
+        el.classList.add("visible");
+    });
+}
 
 
-        // CẬP NHẬT KỸ NĂNG 40% - 50%
-        // Chỉ cần sửa data-level trong HTML
-        // Số phần trăm và thanh tiến độ sẽ tự đồng bộ.
+// NÚT LÊN ĐẦU TRANG
+const backToTop =
+    document.getElementById("backToTop");
 
-        const skills = document.querySelectorAll(".skill");
+window.addEventListener("scroll", function() {
+    backToTop.style.display =
+        window.scrollY > 350 ? "block" : "none";
+});
 
-        skills.forEach(function(skill) {
-            const level = Math.min(
-                100,
-                Math.max(0, Number(skill.dataset.level) || 0)
-            );
+backToTop.addEventListener("click", function() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
 
-            const percent =
-                skill.querySelector(".skill-percent");
 
-            const bar =
-                skill.querySelector(".progress-bar");
-
-            percent.textContent = level + "%";
-            bar.style.width = level + "%";
+// LƯU CV THÀNH PDF
+document.getElementById("printCV")
+    .addEventListener("click", function() {
+        document.querySelectorAll(".reveal").forEach(function(el) {
+            el.classList.add("visible");
         });
 
+        window.print();
+    });
 
-        // CHẾ ĐỘ SÁNG TỐI
-        const themeToggle =
-            document.getElementById("themeToggle");
 
-        const savedTheme =
-            localStorage.getItem("portfolioTheme");
+// FORM LIÊN HỆ
+document.getElementById("contactForm")
+    .addEventListener("submit", function(event) {
 
-        if (savedTheme === "dark") {
-            document.body.classList.add("dark");
+        event.preventDefault();
+
+        const name =
+            document.getElementById("name").value.trim();
+
+        const email =
+            document.getElementById("email").value.trim();
+
+        const message =
+            document.getElementById("message").value.trim();
+
+        if (!name || !email || !message) {
+            alert("Vui lòng nhập đầy đủ thông tin!");
+            return;
         }
 
-        function updateThemeButton() {
-            const isDark =
-                document.body.classList.contains("dark");
+        const receiver = "datnt0886@ut.edu.vn";
 
-            themeToggle.textContent =
-                isDark ? "☀️" : "🌙";
-        }
+        const subject =
+            "Liên hệ từ Portfolio - " + name;
 
-        updateThemeButton();
+        const body =
+            "Họ tên: " + name + "\n" +
+            "Email: " + email + "\n\n" +
+            "Nội dung:\n" + message;
 
-        themeToggle.addEventListener("click", function() {
-            document.body.classList.toggle("dark");
+        window.location.href =
+            "mailto:" + receiver +
+            "?subject=" + encodeURIComponent(subject) +
+            "&body=" + encodeURIComponent(body);
+    });
 
-            const isDark =
-                document.body.classList.contains("dark");
-
-            localStorage.setItem(
-                "portfolioTheme",
-                isDark ? "dark" : "light"
-            );
-
-            updateThemeButton();
-        });
-
-
-        // QUAY LẠI ĐẦU TRANG
-        const backToTop =
-            document.getElementById("backToTop");
-
-        window.addEventListener("scroll", function() {
-            backToTop.style.display =
-                window.scrollY > 300 ? "block" : "none";
-        });
-
-        backToTop.addEventListener("click", function() {
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-        });
-
-
-        // LƯU CV THÀNH PDF
-        document.getElementById("printCV")
-            .addEventListener("click", function() {
-                window.print();
-            });
-
-
-        // FORM LIÊN HỆ
-        const contactForm =
-            document.getElementById("contactForm");
-
-        contactForm.addEventListener("submit", function(event) {
-            event.preventDefault();
-
-            const name =
-                document.getElementById("name").value.trim();
-
-            const email =
-                document.getElementById("email").value.trim();
-
-            const message =
-                document.getElementById("message").value.trim();
-
-            if (!name || !email || !message) {
-                alert("Vui lòng nhập đầy đủ thông tin!");
-                return;
-            }
-
-            const receiver = "datnt0886@ut.edu.vn";
-
-            const subject =
-                "Liên hệ từ Portfolio - " + name;
-
-            const body =
-                "Họ tên: " + name + "\n" +
-                "Email: " + email + "\n\n" +
-                "Nội dung:\n" + message;
-
-            window.location.href =
-                "mailto:" + receiver +
-                "?subject=" + encodeURIComponent(subject) +
-                "&body=" + encodeURIComponent(body);
-        });
-    </script>
-
+</script>
 </body>
 </html>
